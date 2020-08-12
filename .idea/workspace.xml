@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9028339c-f202-4d94-9d6d-0e078b1b0785" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/HomePage/home_page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/header.js" afterDir="false" />
-    </list>
+    <list default="true" id="9028339c-f202-4d94-9d6d-0e078b1b0785" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,6 +59,7 @@
       <workItem from="1596896556448" duration="599000" />
       <workItem from="1596963445360" duration="13749000" />
       <workItem from="1597164236520" duration="2243000" />
+      <workItem from="1597171077033" duration="5334000" />
     </task>
     <servers />
   </component>
@@ -77,14 +74,14 @@
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
     <state x="945" y="392" width="748" height="695" key="#Inspections/88.41.2472.1399@88.41.2472.1399" timestamp="1596570231349" />
-    <state x="926" y="370" width="786" height="738" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596658185054">
+    <state x="926" y="370" width="786" height="738" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597173299325">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
-    <state x="926" y="370" width="786" height="738" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/88.41.2472.1399@88.41.2472.1399" timestamp="1596658185054" />
-    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl" timestamp="1596963982368">
+    <state x="926" y="370" width="786" height="738" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/88.41.2472.1399@88.41.2472.1399" timestamp="1597173299325" />
+    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl" timestamp="1597171517431">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
-    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl/88.41.2472.1399@88.41.2472.1399" timestamp="1596963982368" />
+    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl/88.41.2472.1399@88.41.2472.1399" timestamp="1597171517431" />
     <state x="819" y="338" key="run.anything.popup" timestamp="1596976739719">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>

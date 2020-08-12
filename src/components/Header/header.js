@@ -11,14 +11,13 @@ const useStyles = makeStyles(theme => ({
     addIcon: {
         color: '#4791db',
         paddingRight: '7px',
-        '& :hover':{
-            backgroundColor: '#d1c4e9',
-        }
+        // '& :hover':{
+        //     backgroundColor: '#e3f2fd',
+        // }
     },
-
     block:{
         '&:hover':{
-            backgroundColor: '#d1c4e9',
+            backgroundColor: '#e3f2fd',
         }
     }
 }));
