@@ -5,6 +5,7 @@ import sli_5 from '../../images/sli_5.jpeg';
 import sli_9 from '../../images/sli_9.jpeg';
 import sli_4 from '../../images/sli_4.jpeg';
 
+
 const useStyles = makeStyles(theme => ({
     carousel: {
         display: 'block',
@@ -14,14 +15,14 @@ const useStyles = makeStyles(theme => ({
 
     caption: {
         color: '#ff6f00',
-        fontSize: '2.1em',
-        fontFamily: 'Ubuntu'
+        fontSize: '2.3em',
+        fontFamily: 'Roboto'
     },
 
     description: {
         color: '#ff6f00',
-        fontSize: '1.1em',
-        fontFamily: 'Ubuntu'
+        fontSize: '1.2em',
+        fontFamily: 'Roboto'
     }
 }));
 
