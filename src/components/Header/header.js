@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
 const Header = () =>{
     const classes =useStyles();
     return(
-        <Navbar collapseOnSelect expand='md' bg='light' variant='light' fixed='top'>
+        <Navbar collapseOnSelect expand='md' bg='light' variant='light'>
             <Container>
                 <Navbar.Brand href='/'>
                     <img
