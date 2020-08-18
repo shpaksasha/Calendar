@@ -1,15 +1,20 @@
 import React from 'react';
-import {Form, Button} from 'react-bootstrap';
+import {Button, Form} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme =>({
-
+const useStyles = makeStyles(theme => ({
+    form: {
+        width: '400px',
+        height: '400px',
+        margin: '180px auto',
+        position: 'relative'
+    }
 }));
 
 const LogOn = () => {
     const classes = useStyles();
     return (
-        <Form >
+        <Form className={classes.form}>
             <Form.Group controlId='formName'>
                 <Form.Label>Name</Form.Label>
                 <Form.Control type='name' placeholder='Name'/>
@@ -25,7 +30,7 @@ const LogOn = () => {
                 <Form.Control as='textarea' type='message' placeholder='Message'/>
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type='submit'>
                 Submit
             </Button>
         </Form>
