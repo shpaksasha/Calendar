@@ -6,14 +6,14 @@ const useStyles = makeStyles(theme => ({
     form: {
         width: '400px',
         height: '480px',
-        margin: '180px auto',
+        margin: '160px auto',
         position: 'relative',
-        backgroundColor:'#f5f5f5',
+        backgroundColor: '#f5f5f5',
         borderRadius: '10px',
-        padding: '2em 2em'
+        padding: '2em 2em',
     },
     control: {
-        paddingBottom:'7px',
+        paddingBottom: '7px',
     },
     contact: {
         fontSize: '1.9em',
@@ -22,7 +22,10 @@ const useStyles = makeStyles(theme => ({
         padding: '1.7em 2em'
     },
     submit: {
-        margin: '0em auto'
+        marginTop: '18px',
+        position: 'relative',
+        left: '50%',
+        transform: 'translate(-50%, 0)'
     }
 }));
 
@@ -43,7 +46,7 @@ const LogOn = () => {
                 <Form.Control style={{fontFamily: 'Roboto'}} as='textarea' type='message' placeholder='Message'/>
             </Form.Group>
 
-            <Button className={classes.submit} class="btn btn-dark" variant='dark' type='submit'>
+            <Button className={classes.submit} variant='dark' type='submit'>
                 Submit
             </Button>
         </Form>
