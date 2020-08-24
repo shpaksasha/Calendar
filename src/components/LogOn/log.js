@@ -54,7 +54,9 @@ const LogOn = () => {
     }
     const sendEmail = () => {
         Axios.post(
-            'https://us-central1-your-app-name.cloudfunctions.net/submit',
+            // 'https://us-central1-your-app-name.cloudfunctions.net/submit',
+            // 'https://my-calendar-ab740.web.app',
+            'https://console.firebase.google.com/project/my-calendar-ab740/overview',
             authorization
         )
             .then(res => {
@@ -82,7 +84,7 @@ const LogOn = () => {
             </Form.Group>
 
             <Form.Group controlId='Message'>
-                <Form.Control style={{fontFamily: 'Roboto'}} as='textarea' type='message' placeholder='Message' value={authorization.message || ''} onChange={updateInput}/>
+                <Form.Control style={{fontFamily: 'Roboto'}} as='textarea' type='message' placeholder='Message' value={authorization.message} onChange={updateInput}/>
             </Form.Group>
 
             <Button className={classes.submit} variant='dark' type='submit'>
