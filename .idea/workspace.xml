@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9028339c-f202-4d94-9d6d-0e078b1b0785" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/firebase/function.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/LogOn/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LogOn/log.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/firebase/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/firebase/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +44,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../faq-test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../rio" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -50,6 +52,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -77,7 +84,8 @@
       <workItem from="1597771165960" duration="2967000" />
       <workItem from="1597858581269" duration="8503000" />
       <workItem from="1598110975205" duration="4718000" />
-      <workItem from="1598263199974" duration="307000" />
+      <workItem from="1598263199974" duration="12160000" />
+      <workItem from="1598376654680" duration="1955000" />
     </task>
     <servers />
   </component>
@@ -96,10 +104,10 @@
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
     <state x="926" y="370" width="786" height="738" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/88.41.2472.1399@88.41.2472.1399" timestamp="1597173299325" />
-    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl" timestamp="1597772091696">
+    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl" timestamp="1598263856460">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
-    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl/88.41.2472.1399@88.41.2472.1399" timestamp="1597772091696" />
+    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl/88.41.2472.1399@88.41.2472.1399" timestamp="1598263856460" />
     <state x="819" y="338" key="run.anything.popup" timestamp="1596976739719">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>

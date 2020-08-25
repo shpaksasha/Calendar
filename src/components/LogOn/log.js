@@ -37,10 +37,10 @@ const LogOn = () => {
 
     const [authorization, setAuth] = useState({})
 
-    const updateInput = event => {
+    const updateInput = e => {
         setAuth({
             ...authorization,
-            [event.target.name]: event.target.value,
+            [e.target.name]: e.target.value,
         })
     }
     const handleSubmit = event => {
@@ -60,7 +60,7 @@ const LogOn = () => {
             authorization
         )
             .then(res => {
-                db.collection('emails').add ({
+                db.collection('emails').add({
                     name: authorization.name,
                     email: authorization.email,
                     message: authorization.message,
@@ -73,7 +73,7 @@ const LogOn = () => {
     }
 
     return (
-        <Form className={classes.form} onSubmit={handleSubmit}>
+        <Form className={classes.form}>
             <Form.Label className={classes.contact}>Contact Form</Form.Label>
             <Form.Group controlId='formName' className={classes.control}>
                 <Form.Control style={{fontFamily: 'Roboto'}} type='name' placeholder='Name' value={authorization.name} onChange={updateInput}/>
@@ -87,7 +87,7 @@ const LogOn = () => {
                 <Form.Control style={{fontFamily: 'Roboto'}} as='textarea' type='message' placeholder='Message' value={authorization.message} onChange={updateInput}/>
             </Form.Group>
 
-            <Button className={classes.submit} variant='dark' type='submit'>
+            <Button className={classes.submit} onSubmit={handleSubmit} variant='dark' type='submit'>
                 Submit
             </Button>
         </Form>
