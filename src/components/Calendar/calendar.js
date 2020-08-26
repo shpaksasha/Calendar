@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
+import React, {useState} from 'react';
 import Calendar from 'react-calendar';
-// import Calendar from 'react-calendar/dist/entry.nostyle';
 
-class MyApp extends Component {
-    state = {
-        date: new Date(),
-    }
+const CalendarReact = () => {
+    // state = {
+    //     date: new Date(),
+    // }
+    // onChange = date => this.setState({ date })
+    const [date, setDate] = useState([new Date()]);
 
-    onChange = date => this.setState({ date })
-
-    render() {
+    
         return (
             <div>
                 <Calendar
@@ -18,7 +17,7 @@ class MyApp extends Component {
                 />
             </div>
         );
-    }
+
 }
 
-export default MyApp;
+export default CalendarReact;

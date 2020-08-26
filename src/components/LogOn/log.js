@@ -73,7 +73,7 @@ const LogOn = () => {
     }
 
     return (
-        <Form className={classes.form}>
+        <Form className={classes.form} onSubmit={handleSubmit}>
             <Form.Label className={classes.contact}>Contact Form</Form.Label>
             <Form.Group controlId='formName' className={classes.control}>
                 <Form.Control style={{fontFamily: 'Roboto'}} type='name' placeholder='Name' value={authorization.name} onChange={updateInput}/>
@@ -87,7 +87,7 @@ const LogOn = () => {
                 <Form.Control style={{fontFamily: 'Roboto'}} as='textarea' type='message' placeholder='Message' value={authorization.message} onChange={updateInput}/>
             </Form.Group>
 
-            <Button className={classes.submit} onSubmit={handleSubmit} variant='dark' type='submit'>
+            <Button className={classes.submit} variant='dark' type='submit'>
                 Submit
             </Button>
         </Form>
