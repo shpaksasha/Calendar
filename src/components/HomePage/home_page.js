@@ -1,13 +1,30 @@
 import React from 'react';
 import Slider from './slider';
-import MyApp from '../Calendar/calendar';
+import CalendarReact from '../Calendar/calendar';
+import {makeStyles} from '@material-ui/core/styles';
+import {Grid} from '@material-ui/core';
 
+const useStyle =makeStyles(theme =>({
+    root: {
+        flexGrow: 1,
+        margin: 0,
+        display: 'block',
+        alignItems: 'center',
+        justifyContent: 'center'
+        // padding: '3rem 6.25rem 3rem ',
+
+
+    }
+}));
 
 const Home = () =>{
+    const classes = useStyle();
+
     return(
-    <div>
+    <div className={classes.root}>
         <Slider/>
-        <MyApp/>
+        <CalendarReact/>
+    <Grid/>
     </div>
     )
 }

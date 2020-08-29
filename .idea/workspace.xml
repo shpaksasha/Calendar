@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9028339c-f202-4d94-9d6d-0e078b1b0785" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Calendar/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Calendar/calendar.js" afterDir="false" />
-    </list>
+    <list default="true" id="9028339c-f202-4d94-9d6d-0e078b1b0785" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +11,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -42,7 +40,8 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Old/React.JS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../faq-test" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -86,7 +85,7 @@
       <workItem from="1598376654680" duration="5628000" />
       <workItem from="1598468457297" duration="2050000" />
       <workItem from="1598552546241" duration="3913000" />
-      <workItem from="1598689905224" duration="796000" />
+      <workItem from="1598689905224" duration="12139000" />
     </task>
     <servers />
   </component>
@@ -101,14 +100,14 @@
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
     <state x="945" y="392" width="748" height="695" key="#Inspections/88.41.2472.1399@88.41.2472.1399" timestamp="1596570231349" />
-    <state x="926" y="370" width="786" height="738" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597173299325">
+    <state x="926" y="370" width="786" height="738" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598692862294">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
-    <state x="926" y="370" width="786" height="738" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/88.41.2472.1399@88.41.2472.1399" timestamp="1597173299325" />
-    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl" timestamp="1598552594088">
+    <state x="926" y="370" width="786" height="738" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/88.41.2472.1399@88.41.2472.1399" timestamp="1598692862294" />
+    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl" timestamp="1598690884669">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
-    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl/88.41.2472.1399@88.41.2472.1399" timestamp="1598552594088" />
+    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl/88.41.2472.1399@88.41.2472.1399" timestamp="1598690884669" />
     <state x="819" y="338" key="run.anything.popup" timestamp="1596976739719">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
