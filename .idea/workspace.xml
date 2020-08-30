@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9028339c-f202-4d94-9d6d-0e078b1b0785" name="Default Changelist" comment="" />
+    <list default="true" id="9028339c-f202-4d94-9d6d-0e078b1b0785" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +42,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../faq-test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../rio" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -49,6 +51,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -86,6 +89,7 @@
       <workItem from="1598468457297" duration="2050000" />
       <workItem from="1598552546241" duration="3913000" />
       <workItem from="1598689905224" duration="12139000" />
+      <workItem from="1598703981141" duration="11562000" />
     </task>
     <servers />
   </component>
@@ -104,10 +108,10 @@
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
     <state x="926" y="370" width="786" height="738" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/88.41.2472.1399@88.41.2472.1399" timestamp="1598692862294" />
-    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl" timestamp="1598690884669">
+    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl" timestamp="1598704515141">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
-    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl/88.41.2472.1399@88.41.2472.1399" timestamp="1598690884669" />
+    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl/88.41.2472.1399@88.41.2472.1399" timestamp="1598704515141" />
     <state x="819" y="338" key="run.anything.popup" timestamp="1596976739719">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
