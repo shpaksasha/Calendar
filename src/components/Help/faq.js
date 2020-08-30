@@ -5,11 +5,6 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import sky from '../../images/sky.jpeg';
 
 const useStyles = makeStyles(theme => ({
-    body: {
-        // backgroundImage:{sky},
-        backgroundImage: `url('${sky}')`,
-    },
-
     root: {
         // backgroundImage: `url('${sky}')`,
         width: '100%',
@@ -32,7 +27,7 @@ const Faq = () => {
     const classes = useStyles();
 
     return (
-            <div className={classes.root}>
+            <div className={classes.root} style={{ backgroundImage:`url(${sky})`}}>
                 <Accordion disableSpacing={true}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon style={{'color': '#ffffff'}}/>}
