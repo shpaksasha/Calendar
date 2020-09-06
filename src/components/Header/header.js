@@ -39,7 +39,7 @@ const Header = () =>{
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls='responsive-navbar-nav'/>
                 <Navbar.Collapse id='responsive-navbar-nav'>
-                    <Nav className='m-auto pr-md-2'>
+                    <Nav className='m-auto pr-md-auto'>
                         <Nav.Link href='/' className={classes.block}>Головна</Nav.Link>
                         <NavDropdown title='Графік' id='basic-nav-dropdown' className={classes.block}>
                             <NavDropdown.Item href='#'><AddCircleOutlineIcon className={classes.addIcon}/>Створити графік</NavDropdown.Item>
@@ -49,8 +49,9 @@ const Header = () =>{
                             <NavDropdown.Item href='#'><ShowChartIcon className={classes.addIcon}/>Статистика</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link href='/content' className={classes.block}>Запросити друзів</Nav.Link>
+                        <Nav.Link href='/info' className={classes.block}>Info</Nav.Link>
                         <Nav.Link href='/faq' className={classes.block}>Підтримка</Nav.Link>
-                        <Nav.Link href='/log' className={classes.block}>Увійти</Nav.Link>
+                        <Nav.Link href='/log' className={classes.block}>SignIn</Nav.Link>
                     </Nav>
                     <Form inline>
                         <FormControl type="text" placeholder="Search" className="mr-sm-2"/>

@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9028339c-f202-4d94-9d6d-0e078b1b0785" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/InfoFirebase/info.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Help/faq.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Help/faq.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/LogOn/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LogOn/log.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/header.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +96,7 @@
       <workItem from="1599315732351" duration="8779000" />
       <workItem from="1599331340076" duration="362000" />
       <workItem from="1599331746186" duration="4504000" />
-      <workItem from="1599392384188" duration="5566000" />
+      <workItem from="1599392384188" duration="8669000" />
     </task>
     <servers />
   </component>
