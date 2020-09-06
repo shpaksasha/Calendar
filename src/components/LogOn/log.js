@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
-import { db } from '../../firebase/firebaseConfig';
-import Axios from 'axios';
+import {db} from '../../firebase/firebaseConfig';
 
 
 const useStyles = makeStyles(theme => ({
@@ -42,6 +41,8 @@ const LogOn = () => {
             ...authorization,
             [e.target.name]: e.target.value,
         })
+        console.log(authorization)
+        console.log(e.target.name)
     }
     const handleSubmit = event => {
         event.preventDefault()
@@ -53,20 +54,12 @@ const LogOn = () => {
         })
     }
     const sendEmail = () => {
-        Axios.post(
-            // 'https://us-central1-your-app-name.cloudfunctions.net/submit',
-            // 'https://my-calendar-ab740.web.app',
-            'https://console.firebase.google.com/project/my-calendar-ab740/overview',
-            authorization
-        )
-            .then(res => {
-                db.collection('emails').add({
-                    name: authorization.name,
-                    email: authorization.email,
-                    message: authorization.message,
-                    time: new Date(),
-                })
-            })
+        db.collection('emails').add({
+            name: authorization.name,
+            email: authorization.email,
+            message: authorization.message,
+            time: new Date(),
+        })
             .catch(error => {
                 console.log(error)
             })
@@ -76,15 +69,18 @@ const LogOn = () => {
         <Form className={classes.form} onSubmit={handleSubmit}>
             <Form.Label className={classes.contact}>Contact Form</Form.Label>
             <Form.Group controlId='formName' className={classes.control}>
-                <Form.Control style={{fontFamily: 'Roboto'}} type='name' placeholder='Name' value={authorization.name} onChange={updateInput}/>
+                <Form.Control style={{fontFamily: 'Roboto'}} type='text' name='name' value={authorization.name}
+                              onChange={updateInput} placeholder='Name'/>
             </Form.Group>
 
             <Form.Group controlId='formEmail' className={classes.control}>
-                <Form.Control style={{fontFamily: 'Roboto'}} type='email' placeholder='Email' value={authorization.email} onChange={updateInput}/>
+                <Form.Control style={{fontFamily: 'Roboto'}} type='email' name='email' value={authorization.email}
+                              onChange={updateInput} placeholder='Email'/>
             </Form.Group>
 
             <Form.Group controlId='Message'>
-                <Form.Control style={{fontFamily: 'Roboto'}} as='textarea' type='message' placeholder='Message' value={authorization.message} onChange={updateInput}/>
+                <Form.Control style={{fontFamily: 'Roboto'}} type='text' name='message' value={authorization.message}
+                              onChange={updateInput} placeholder='Message'/>
             </Form.Group>
 
             <Button className={classes.submit} variant='dark' type='submit'>
