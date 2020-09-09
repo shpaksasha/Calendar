@@ -65,6 +65,31 @@ const LogOn = () => {
             })
     }
 
+    const snapshot =  db.collection('emails').get();
+    snapshot.map()=> {
+        console.log(item.name, '=>', doc.data());
+    });
+
+    // const sendEmail = new Promise(function (resolve, reject){
+    //     setTimeout(() => {
+    //             db.collection('emails').add({
+    //                 name: authorization.name,
+    //                 email: authorization.email,
+    //                 message: authorization.message,
+    //                 time: new Date(),
+    //             })
+    //                 .catch(error => {
+    //                     console.log(error)
+    //                 })
+    //
+    //         console.log('xxxxxxxxxxxx')
+    //         resolve()
+    //     },5000)
+    // })
+    // .then(() => {
+    //     this.db.collection('emails').doc().set('emails')
+    // })
+
     return (
         <Form className={classes.form} onSubmit={handleSubmit}>
             <Form.Label className={classes.contact}>Contact Form</Form.Label>
