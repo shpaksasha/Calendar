@@ -33,7 +33,6 @@ const useStyles = makeStyles(theme => ({
 
 const LogOn = () => {
     const classes = useStyles();
-
     const [authorization, setAuth] = useState({})
 
     const updateInput = e => {
@@ -64,31 +63,24 @@ const LogOn = () => {
                 console.log(error)
             })
     }
+    // const logCities = async () => {
+    //     const citiesRef = db.collection('emails');
+    //     const snapshot = await citiesRef.get();
+    //     snapshot.map((item) => {
+    //         console.log(`${item.name} ${item.email} ${item.message}`);
+    //     });
+    // }
 
-    const snapshot =  db.collection('emails').get();
-    snapshot.map()=> {
-        console.log(item.name, '=>', doc.data());
-    });
+    const pullEmail = () => {
+        let baseRef = db.collection('emails');
+        let allBase = baseRef.get()
+            .then((snapshot) => {
+                snapshot.map(item =>{
+                    console.log(`${item.name} ${item.email} ${item.message}`);
+                })
+            })
+    }
 
-    // const sendEmail = new Promise(function (resolve, reject){
-    //     setTimeout(() => {
-    //             db.collection('emails').add({
-    //                 name: authorization.name,
-    //                 email: authorization.email,
-    //                 message: authorization.message,
-    //                 time: new Date(),
-    //             })
-    //                 .catch(error => {
-    //                     console.log(error)
-    //                 })
-    //
-    //         console.log('xxxxxxxxxxxx')
-    //         resolve()
-    //     },5000)
-    // })
-    // .then(() => {
-    //     this.db.collection('emails').doc().set('emails')
-    // })
 
     return (
         <Form className={classes.form} onSubmit={handleSubmit}>
