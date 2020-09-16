@@ -6,25 +6,21 @@ import {makeStyles} from '@material-ui/core/styles';
 
 const useStyles =makeStyles(theme =>({
     root: {
-        minWidth: 275,
-    },
-    bullet: {
-        display: 'inline-block',
-        margin: '0 2px',
-        transform: 'scale(0.8)',
+        width: '400px',
+        height: '400px'
     },
     title: {
         fontSize: 14,
     },
     pos: {
         marginBottom: 12,
-    },
+    }
 }))
 
-const SimpleCard = () => {
+const Cards = () => {
     const classes = useStyles();
 
-     db.collection('emails').get()
+     db.collection('emails').getItem()
         .then(snapshot => {
             snapshot.map((item) => {
                 return (
@@ -50,8 +46,8 @@ const SimpleCard = () => {
                         </CardActions>
                     </Card>
                 )
-            })
+            });
         })
 }
 
-export default SimpleCard;
+export default Cards;
