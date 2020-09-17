@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
 import {db} from '../../firebase/firebaseConfig';
-import Cards from './simple_card';
-import {Container, CircularProgress} from '@material-ui/core';
+import {Container, CircularProgress, CardContent, Typography, CardActions, Card} from '@material-ui/core';
 
 
 
@@ -45,6 +44,12 @@ const useStyles = makeStyles(theme => ({
 const LogOn = () => {
     const classes = useStyles();
     const [authorization, setAuth] = useState({})
+    let area = [
+        {name: authorization.name},
+        {email: authorization.email},
+        {message: authorization.message},
+        {time: new Date()},
+    ]
 
     const updateInput = e => {
         setAuth({
@@ -74,6 +79,15 @@ const LogOn = () => {
                 console.log(error)
             })
     }
+    const pullBase = () =>{
+        const raw = db.collection('emails').getItem(JSON.stringify(area))
+        raw.map((item)=>{
+            return <div>
+                `${item.name}: ${item.email}: ${item.message}`
+            </div>
+        })
+        }
+
 
     function renderLoading() {
         return (
@@ -86,7 +100,8 @@ const LogOn = () => {
 
 
     return (
-        <Form className={classes.form} onSubmit={handleSubmit}>
+        <div>
+        <Form className={classes.form} onSubmit={handleSubmit} onChange={pullBase}>
             <Form.Label className={classes.contact}>Contact Form</Form.Label>
             <Form.Group controlId='formName' className={classes.control}>
                 <Form.Control style={{fontFamily: 'Roboto'}} type='text' name='name' value={authorization.name}
@@ -107,17 +122,27 @@ const LogOn = () => {
                 Submit
             </Button>
         </Form>
+            <Card className={classes.root}>
+                <CardContent>
+                    <Typography className={classes.title} color="textSecondary" gutterBottom>
+                        Word of the Day
+                    </Typography>
+                    <Typography variant="h5" component="h2">
+                        {pullBase}
+                    </Typography>
+                </CardContent>
+                <CardActions>
+                    <Button size="small">Learn More</Button>
+                </CardActions>
+            </Card>
+        </div>
     )
 
-    // if (handleSubmit) {
-    //     return (
-    //         <div>
-    //             <Cards/>
-    //         </div>
-    //     );
+    // if (event) {
+    //     return handleSubmit(event);
     //
     // } else {
-    //     return renderLoading();
+    //     return pullBase
     // }
 };
 
