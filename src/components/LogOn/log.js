@@ -44,12 +44,6 @@ const useStyles = makeStyles(theme => ({
 const LogOn = () => {
     const classes = useStyles();
     const [authorization, setAuth] = useState({})
-    let area = [
-        {name: authorization.name},
-        {email: authorization.email},
-        {message: authorization.message},
-        {time: new Date()},
-    ]
 
     const updateInput = e => {
         setAuth({
@@ -79,29 +73,50 @@ const LogOn = () => {
                 console.log(error)
             })
     }
-    const pullBase = () =>{
-        const raw = db.collection('emails').getItem(JSON.stringify(area))
-        raw.map((item)=>{
-            return <div>
-                `${item.name}: ${item.email}: ${item.message}`
-            </div>
-        })
-        }
+    const prom = new Promise(function (resolve,reject){
+        setTimeout(() => {
+            console.log('Hi, how are you ?')
+            const pullLocal = () => {
+                const raw =localStorage.getItem('emails');
+                setAuth(JSON.parse(raw));
+            }
+            resolve()
+        }, 2000)
+    });
+
+    prom.then(()=> {
+        console.log('Promise resolved')
+    })
+
+    // const pullLocal = () => {
+    //     const raw =localStorage.getItem('emails');
+    //     setAuth(JSON.parse(raw));
+    // }
 
 
-    function renderLoading() {
-        return (
-            <Container maxWidth='md' component='div' fixed className={classes.loading}>
-                <CircularProgress color="secondary" size={57}/>
-            </Container>
-        )
-    }
+    // const pullBase = () =>{
+    //     const raw = db.collection('emails').getItem(JSON.stringify(area))
+    //     raw.map((item)=>{
+    //         return <div>
+    //             `${item.name}: ${item.email}: ${item.message}`
+    //         </div>
+    //     })
+    //     }
+
+
+    // function renderLoading() {
+    //     return (
+    //         <Container maxWidth='md' component='div' fixed className={classes.loading}>
+    //             <CircularProgress color="secondary" size={57}/>
+    //         </Container>
+    //     )
+    // }
 
 
 
     return (
         <div>
-        <Form className={classes.form} onSubmit={handleSubmit} onChange={pullBase}>
+        <Form className={classes.form} onSubmit={handleSubmit}>
             <Form.Label className={classes.contact}>Contact Form</Form.Label>
             <Form.Group controlId='formName' className={classes.control}>
                 <Form.Control style={{fontFamily: 'Roboto'}} type='text' name='name' value={authorization.name}
@@ -118,7 +133,7 @@ const LogOn = () => {
                               onChange={updateInput} placeholder='Message'/>
             </Form.Group>
 
-            <Button className={classes.submit} variant='dark' type='submit'>
+            <Button className={classes.submit} variant='dark' type='submit' onSubmit={prom}>
                 Submit
             </Button>
         </Form>
@@ -128,7 +143,7 @@ const LogOn = () => {
                         Word of the Day
                     </Typography>
                     <Typography variant="h5" component="h2">
-                        {pullBase}
+
                     </Typography>
                 </CardContent>
                 <CardActions>
