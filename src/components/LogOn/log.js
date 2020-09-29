@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
 import {db} from '../../firebase/firebaseConfig';
-import {Container, CircularProgress, CardContent, Typography, CardActions, Card} from '@material-ui/core';
-
+import {Card, CardActions, CardContent, Typography} from '@material-ui/core';
 
 
 const useStyles = makeStyles(theme => ({
@@ -38,12 +37,26 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: '350px',
+    },
+    root: {
+        marginTop: '200px',
+        minWidth: '100%',
+        position: 'relative'
+
+    },
+    title: {
+        fontSize: 14,
+    },
+    pos: {
+        marginBottom: 12,
     }
 }));
 
 const LogOn = () => {
     const classes = useStyles();
     const [authorization, setAuth] = useState({})
+    const [list, setList] = useState([])
+
 
     const updateInput = e => {
         setAuth({
@@ -73,28 +86,74 @@ const LogOn = () => {
                 console.log(error)
             })
     }
-    const prom = new Promise( (resolve,reject) => {
-        setTimeout(() => {
-            console.log('Hi, how are you ?')
-            const pullLocal = () => {
-                const raw =localStorage.getItem('emails');
-                setAuth(JSON.parse(raw));
-            }
-            resolve(pullLocal)
-        }, 2000)
-    });
 
-    prom.then(pull => {
-        const prom2 = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                console.log('Promise resolved', pull)
-                resolve(pull)
-                return(
-                    {setAuth}
-                )
-            },3000)
-        })
-    })
+    useEffect(() => {
+        const observer = db.collection('emails').onSnapshot(querySnapshot => {
+            querySnapshot.docChanges().forEach(change => {
+                let data = {...change.doc.data(),'id': change.doc.id};
+                if (change.type === 'added') {
+                                console.log('New record: ', data);
+                                setList(prevState => {
+                                   return [...prevState, data]
+                                })
+                            }
+                            if (change.type === 'modified') {
+                                console.log('Modified record: ', data);
+                                setList(prevState => prevState.map(item=>{
+                                    if (data.id == item.id) {
+                                        return data
+                                    }
+                                    else {
+                                        return item
+                                    }
+                                }))
+                            }
+                            if (change.type === 'removed') {
+                                console.log('Removed record: ', data);
+                                setList(prevState =>prevState.filter(item => {
+                                    let b = data.id != item.id;
+                                    console.log('Removed record filter: ', b, item, data);
+                                    return  b
+
+                                }))
+                            }
+                })
+            }
+            )
+        return () => {
+            observer()
+        };
+    }, []);
+
+
+
+
+
+    // const prom = new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //         console.log('Hi, how are you ?')
+    //         const pullLocal = () => {
+    //             const raw = localStorage.getItem('emails');
+    //             setAuth(JSON.parse(raw));
+    //            // raw.map((item) => {
+    //            //      item.name.JSON.parse(authorization.name)
+    //            //      item.email.JSON.parse(authorization.email)
+    //            //      item.message.JSON.parse(authorization.message)
+    //            //  })
+    //         }
+    //         resolve(pullLocal)
+    //     }, 2000)
+    // });
+    //
+    // prom.then(pull => {
+    //     const prom2 = new Promise((resolve, reject) => {
+    //         setTimeout(() => {
+    //             console.log('Promise resolved')
+    //             resolve(pull)
+    //
+    //         }, 3000)
+    //     })
+    // })
 
     // const pullLocal = () => {
     //     const raw =localStorage.getItem('emails');
@@ -120,30 +179,55 @@ const LogOn = () => {
     //     )
     // }
 
-
-
+    // let p = document.querySelector('.block')
+    const p = list.map((item) =>
+        <li key={item.id}><p>{item.email}</p><p>{item.name}</p><p>{item.message}</p></li>
+    )
     return (
-        <Form className={classes.form} onSubmit={handleSubmit}>
-            <Form.Label className={classes.contact}>Contact Form</Form.Label>
-            <Form.Group controlId='formName' className={classes.control}>
-                <Form.Control style={{fontFamily: 'Roboto'}} type='text' name='name' value={authorization.name}
-                              onChange={updateInput} placeholder='Name'/>
-            </Form.Group>
+        <div>
+            <Form className={classes.form} onSubmit={handleSubmit}>
+                <Form.Label className={classes.contact}>Contact Form</Form.Label>
+                <Form.Group controlId='formName' className={classes.control}>
+                    <Form.Control style={{fontFamily: 'Roboto'}} type='text' name='name' value={authorization.name}
+                                  onChange={updateInput} placeholder='Name'/>
+                </Form.Group>
 
-            <Form.Group controlId='formEmail' className={classes.control}>
-                <Form.Control style={{fontFamily: 'Roboto'}} type='email' name='email' value={authorization.email}
-                              onChange={updateInput} placeholder='Email'/>
-            </Form.Group>
+                <Form.Group controlId='formEmail' className={classes.control}>
+                    <Form.Control style={{fontFamily: 'Roboto'}} type='email' name='email' value={authorization.email}
+                                  onChange={updateInput} placeholder='Email'/>
+                </Form.Group>
 
-            <Form.Group controlId='Message'>
-                <Form.Control style={{fontFamily: 'Roboto'}} type='text' name='message' value={authorization.message}
-                              onChange={updateInput} placeholder='Message'/>
-            </Form.Group>
+                <Form.Group controlId='Message'>
+                    <Form.Control style={{fontFamily: 'Roboto'}} type='text' name='message'
+                                  value={authorization.message}
+                                  onChange={updateInput} placeholder='Message'/>
+                </Form.Group>
 
-            <Button className={classes.submit} variant='dark' type='submit' onSubmit={prom}>
-                Submit
-            </Button>
-        </Form>
+                <Button className={classes.submit} variant='dark' type='submit'>
+                    Submit
+                </Button>
+            </Form>
+            <ul>
+                {p}
+            </ul>
+{/*            <Card className={classes.root}>*/}
+{/*                <CardContent>*/}
+{/*                    <Typography className={classes.title} color="textSecondary" gutterBottom>*/}
+{/*                        Word of the Day*/}
+{/*                    </Typography>*/}
+{/*                    <Typography variant="h5" component="h2">*/}
+{/*                    </Typography>*/}
+{/*                    <Typography className={classes.pos} color="textSecondary">*/}
+{/*                        <div className='block'>*/}
+{/*<p></p>*/}
+{/*                        </div>*/}
+{/*                    </Typography>*/}
+{/*                </CardContent>*/}
+{/*                <CardActions>*/}
+{/*                    <Button size="small">Learn More</Button>*/}
+{/*                </CardActions>*/}
+{/*            </Card>*/}
+        </div>
     )
 };
 
