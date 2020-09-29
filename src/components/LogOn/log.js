@@ -73,7 +73,7 @@ const LogOn = () => {
                 console.log(error)
             })
     }
-    const prom = new Promise(function (resolve,reject){
+    const prom = new Promise( (resolve,reject) => {
         setTimeout(() => {
             console.log('Hi, how are you ?')
             const pullLocal = () => {
@@ -85,10 +85,13 @@ const LogOn = () => {
     });
 
     prom.then(pull => {
-        const prom2 = new Promise((resolve, reject) =>{
+        const prom2 = new Promise((resolve, reject) => {
             setTimeout(() => {
                 console.log('Promise resolved', pull)
                 resolve(pull)
+                return(
+                    {setAuth}
+                )
             },3000)
         })
     })
