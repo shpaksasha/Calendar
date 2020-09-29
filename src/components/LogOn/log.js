@@ -80,12 +80,17 @@ const LogOn = () => {
                 const raw =localStorage.getItem('emails');
                 setAuth(JSON.parse(raw));
             }
-            resolve()
+            resolve(pullLocal)
         }, 2000)
     });
 
-    prom.then(()=> {
-        console.log('Promise resolved')
+    prom.then(pull => {
+        const prom2 = new Promise((resolve, reject) =>{
+            setTimeout(() => {
+                console.log('Promise resolved', pull)
+                resolve(pull)
+            },3000)
+        })
     })
 
     // const pullLocal = () => {
@@ -115,7 +120,6 @@ const LogOn = () => {
 
 
     return (
-        <div>
         <Form className={classes.form} onSubmit={handleSubmit}>
             <Form.Label className={classes.contact}>Contact Form</Form.Label>
             <Form.Group controlId='formName' className={classes.control}>
@@ -137,28 +141,7 @@ const LogOn = () => {
                 Submit
             </Button>
         </Form>
-            <Card className={classes.root}>
-                <CardContent>
-                    <Typography className={classes.title} color="textSecondary" gutterBottom>
-                        Word of the Day
-                    </Typography>
-                    <Typography variant="h5" component="h2">
-
-                    </Typography>
-                </CardContent>
-                <CardActions>
-                    <Button size="small">Learn More</Button>
-                </CardActions>
-            </Card>
-        </div>
     )
-
-    // if (event) {
-    //     return handleSubmit(event);
-    //
-    // } else {
-    //     return pullBase
-    // }
 };
 
 export default LogOn;
