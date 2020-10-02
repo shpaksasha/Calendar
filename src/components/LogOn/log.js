@@ -1,11 +1,20 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
 import {db} from '../../firebase/firebaseConfig';
-import {Card, CardActions, CardContent, Typography} from '@material-ui/core';
+import {Card, CardContent, Grid, Typography} from '@material-ui/core';
+
 
 
 const useStyles = makeStyles(theme => ({
+    root: {
+        flexGrow: 1,
+        display: 'block',
+        width: '100%',
+        margin: 0,
+        padding: '3rem 6.25rem',
+    },
+
     form: {
         width: '400px',
         height: '480px',
@@ -38,18 +47,19 @@ const useStyles = makeStyles(theme => ({
         alignItems: 'center',
         marginTop: '350px',
     },
-    root: {
-        marginTop: '200px',
-        minWidth: '100%',
-        position: 'relative'
+    card: {
+        margin: '50px 10px',
+        width: '400px',
+        height: '200px',
+        position: 'relative',
+        borderRadius: '5px'
 
     },
     title: {
-        fontSize: 14,
+        fontSize: '1.3em',
+        color: '#6200ea'
     },
-    pos: {
-        marginBottom: 12,
-    }
+
 }));
 
 const LogOn = () => {
@@ -90,101 +100,60 @@ const LogOn = () => {
     useEffect(() => {
         const observer = db.collection('emails').onSnapshot(querySnapshot => {
             querySnapshot.docChanges().forEach(change => {
-                let data = {...change.doc.data(),'id': change.doc.id};
+                let data = {...change.doc.data(), 'id': change.doc.id};
                 if (change.type === 'added') {
-                                console.log('New record: ', data);
-                                setList(prevState => {
-                                   return [...prevState, data]
-                                })
-                            }
-                            if (change.type === 'modified') {
-                                console.log('Modified record: ', data);
-                                setList(prevState => prevState.map(item=>{
-                                    if (data.id == item.id) {
-                                        return data
-                                    }
-                                    else {
-                                        return item
-                                    }
-                                }))
-                            }
-                            if (change.type === 'removed') {
-                                console.log('Removed record: ', data);
-                                setList(prevState =>prevState.filter(item => {
-                                    let b = data.id != item.id;
-                                    console.log('Removed record filter: ', b, item, data);
-                                    return  b
-
-                                }))
-                            }
-                })
-            }
-            )
+                    console.log('New record: ', data);
+                    setList(prevState => {
+                        return [...prevState, data]
+                    })
+                }
+                if (change.type === 'modified') {
+                    console.log('Modified record: ', data);
+                    setList(prevState => prevState.map(item => {
+                        if (data.id == item.id) {
+                            return data
+                        } else {
+                            return item
+                        }
+                    }))
+                }
+                if (change.type === 'removed') {
+                    console.log('Removed record: ', data);
+                    setList(prevState => prevState.filter(item => {
+                        let b = data.id != item.id;
+                        console.log('Removed record filter: ', b, item, data);
+                        return b
+                    }))
+                }
+            })
+        })
         return () => {
             observer()
         };
     }, []);
 
 
-
-
-
-    // const prom = new Promise((resolve, reject) => {
-    //     setTimeout(() => {
-    //         console.log('Hi, how are you ?')
-    //         const pullLocal = () => {
-    //             const raw = localStorage.getItem('emails');
-    //             setAuth(JSON.parse(raw));
-    //            // raw.map((item) => {
-    //            //      item.name.JSON.parse(authorization.name)
-    //            //      item.email.JSON.parse(authorization.email)
-    //            //      item.message.JSON.parse(authorization.message)
-    //            //  })
-    //         }
-    //         resolve(pullLocal)
-    //     }, 2000)
-    // });
-    //
-    // prom.then(pull => {
-    //     const prom2 = new Promise((resolve, reject) => {
-    //         setTimeout(() => {
-    //             console.log('Promise resolved')
-    //             resolve(pull)
-    //
-    //         }, 3000)
-    //     })
-    // })
-
-    // const pullLocal = () => {
-    //     const raw =localStorage.getItem('emails');
-    //     setAuth(JSON.parse(raw));
-    // }
-
-
-    // const pullBase = () =>{
-    //     const raw = db.collection('emails').getItem(JSON.stringify(area))
-    //     raw.map((item)=>{
-    //         return <div>
-    //             `${item.name}: ${item.email}: ${item.message}`
-    //         </div>
-    //     })
-    //     }
-
-
-    // function renderLoading() {
-    //     return (
-    //         <Container maxWidth='md' component='div' fixed className={classes.loading}>
-    //             <CircularProgress color="secondary" size={57}/>
-    //         </Container>
-    //     )
-    // }
-
-    // let p = document.querySelector('.block')
-    const p = list.map((item) =>
-        <li key={item.id}><p>{item.email}</p><p>{item.name}</p><p>{item.message}</p></li>
+    const card = list.map((item) => {
+            return (
+                    <Grid item md={4}>
+                        <Card className={classes.card}>
+                            <CardContent>
+                                <Typography className={classes.title} gutterBottom>
+                                    Basic Information
+                                </Typography>
+                                <Typography variant="caption" component="div">
+                                    <div key={item.id}><p>{item.name}</p><p>{item.email}</p><p>{item.message}</p></div>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+            )
+        }
     )
     return (
         <div>
+            <Grid container direction='row' md={12} className={classes.root}>
+                <Grid item md={12}>
             <Form className={classes.form} onSubmit={handleSubmit}>
                 <Form.Label className={classes.contact}>Contact Form</Form.Label>
                 <Form.Group controlId='formName' className={classes.control}>
@@ -207,26 +176,13 @@ const LogOn = () => {
                     Submit
                 </Button>
             </Form>
-            <ul>
-                {p}
-            </ul>
-{/*            <Card className={classes.root}>*/}
-{/*                <CardContent>*/}
-{/*                    <Typography className={classes.title} color="textSecondary" gutterBottom>*/}
-{/*                        Word of the Day*/}
-{/*                    </Typography>*/}
-{/*                    <Typography variant="h5" component="h2">*/}
-{/*                    </Typography>*/}
-{/*                    <Typography className={classes.pos} color="textSecondary">*/}
-{/*                        <div className='block'>*/}
-{/*<p></p>*/}
-{/*                        </div>*/}
-{/*                    </Typography>*/}
-{/*                </CardContent>*/}
-{/*                <CardActions>*/}
-{/*                    <Button size="small">Learn More</Button>*/}
-{/*                </CardActions>*/}
-{/*            </Card>*/}
+                </Grid>
+            <div>
+                <Grid item md={6}>
+                {card}
+                </Grid>
+            </div>
+            </Grid>
         </div>
     )
 };
