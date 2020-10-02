@@ -11,6 +11,7 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
         display: 'block',
         width: '100%',
+        height: 'auto',
         margin: 0,
         padding: '3rem 6.25rem',
     },
@@ -48,8 +49,8 @@ const useStyles = makeStyles(theme => ({
         marginTop: '350px',
     },
     card: {
-        margin: '50px 10px',
-        width: '400px',
+        // margin: '50px 10px',
+        width: '350px',
         height: '200px',
         position: 'relative',
         borderRadius: '5px'
@@ -135,7 +136,7 @@ const LogOn = () => {
 
     const card = list.map((item) => {
             return (
-                    <Grid item md={4}>
+                    <Grid item md={3}>
                         <Card className={classes.card}>
                             <CardContent>
                                 <Typography className={classes.title} gutterBottom>
@@ -151,8 +152,8 @@ const LogOn = () => {
         }
     )
     return (
-        <div>
-            <Grid container direction='row' md={12} className={classes.root}>
+        <div >
+            <Grid container direction='column' md={12} justify="center" alignItems="center"className={classes.root}>
                 <Grid item md={12}>
             <Form className={classes.form} onSubmit={handleSubmit}>
                 <Form.Label className={classes.contact}>Contact Form</Form.Label>
@@ -177,11 +178,10 @@ const LogOn = () => {
                 </Button>
             </Form>
                 </Grid>
-            <div>
-                <Grid item md={6}>
+
+                <Grid item md={3}>
                 {card}
                 </Grid>
-            </div>
             </Grid>
         </div>
     )
