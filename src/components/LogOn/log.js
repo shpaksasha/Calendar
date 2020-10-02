@@ -9,7 +9,7 @@ import {Card, CardContent, Grid, Typography} from '@material-ui/core';
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
-        display: 'block',
+        display: 'flex',
         width: '100%',
         height: 'auto',
         margin: 0,
@@ -49,11 +49,12 @@ const useStyles = makeStyles(theme => ({
         marginTop: '350px',
     },
     card: {
-        // margin: '50px 10px',
-        width: '350px',
-        height: '200px',
+        margin: '30px 10px',
+        width: '345px',
+        height: '190px',
         position: 'relative',
-        borderRadius: '5px'
+        borderRadius: '5px',
+        background: '#b2dfdb'
 
     },
     title: {
@@ -136,7 +137,7 @@ const LogOn = () => {
 
     const card = list.map((item) => {
             return (
-                    <Grid item md={3}>
+                    <Grid item md={4}>
                         <Card className={classes.card}>
                             <CardContent>
                                 <Typography className={classes.title} gutterBottom>
@@ -152,8 +153,8 @@ const LogOn = () => {
         }
     )
     return (
-        <div >
-            <Grid container direction='column' md={12} justify="center" alignItems="center"className={classes.root}>
+        <div className={classes.root}>
+            <Grid container direction='row' md={12} justify='center' alignItems='center'>
                 <Grid item md={12}>
             <Form className={classes.form} onSubmit={handleSubmit}>
                 <Form.Label className={classes.contact}>Contact Form</Form.Label>
@@ -179,7 +180,7 @@ const LogOn = () => {
             </Form>
                 </Grid>
 
-                <Grid item md={3}>
+                <Grid container direction='row' md={12}>
                 {card}
                 </Grid>
             </Grid>
