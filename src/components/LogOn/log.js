@@ -50,16 +50,16 @@ const useStyles = makeStyles(theme => ({
     },
     card: {
         margin: '30px 10px',
-        width: '345px',
+        width: '350px',
         height: '190px',
         position: 'relative',
         borderRadius: '5px',
-        background: '#b2dfdb'
+        background: '#9fa8da'
 
     },
     title: {
-        fontSize: '1.3em',
-        color: '#6200ea'
+        fontSize: '1.4em',
+        color: '#6d4c41'
     },
 
 }));
