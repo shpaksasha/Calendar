@@ -4,8 +4,6 @@ import {makeStyles} from '@material-ui/core/styles';
 import {db} from '../../firebase/firebaseConfig';
 import {Card, CardContent, Grid, Typography} from '@material-ui/core';
 
-
-
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
@@ -65,6 +63,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const LogOn = () => {
+
+
     const classes = useStyles();
     const [authorization, setAuth] = useState({})
     const [list, setList] = useState([])

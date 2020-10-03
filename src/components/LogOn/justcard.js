@@ -63,23 +63,23 @@ const Content = () => {
     // }, []);
 
 
-
+    list.map((item) => {
         return (
-            <Grid container direction='row' md={12} className={classes.root}>
-                <Grid item md={4}>
-                    <Card className={classes.card}>
-                        <CardContent>
-                            <Typography className={classes.title} gutterBottom>
-                                Basic Information
-                            </Typography>
-                            <Typography variant="caption" component="div">
-                                <div key={item.id}><p>{item.email}</p><p>{item.name}</p><p>{item.message}</p></div>
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Grid>
+            <Grid item md={4}>
+                <Card className={classes.card}>
+                    <CardContent>
+                        <Typography className={classes.title} gutterBottom>
+                            Basic Information
+                        </Typography>
+                        <Typography variant="caption" component="div">
+                            <div key={item.id}><p>{item.name}</p><p>{item.email}</p><p>{item.message}</p></div>
+                        </Typography>
+                    </CardContent>
+                </Card>
             </Grid>
         )
+    })
+
 };
 
 
