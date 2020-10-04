@@ -4,20 +4,18 @@ import {makeStyles} from '@material-ui/core/styles';
 import {db} from '../../firebase/firebaseConfig';
 
 const useStyles = makeStyles(theme =>({
-    root: {
-        flexGrow: 1,
-    },
     card: {
-        margin: '50px 10px',
-        width: '400px',
-        height: '200px',
+        margin: '30px 10px',
+        width: '350px',
+        height: '190px',
         position: 'relative',
-        borderRadius: '5px'
+        borderRadius: '5px',
+        background: '#9fa8da'
 
     },
     title: {
-        fontSize: '1.3em',
-        color: '#6200ea'
+        fontSize: '1.4em',
+        color: '#6d4c41'
     }
 }));
 
@@ -25,45 +23,48 @@ const useStyles = makeStyles(theme =>({
 
 const Content = () => {
     const classes = useStyles();
-    // const [list, setList] = useState([])
-    //
-    // useEffect(() => {
-    //     const observer = db.collection('emails').onSnapshot(querySnapshot => {
-    //         querySnapshot.docChanges().forEach(change => {
-    //             let data = {...change.doc.data(), 'id': change.doc.id};
-    //             if (change.type === 'added') {
-    //                 console.log('New record: ', data);
-    //                 setList(prevState => {
-    //                     return [...prevState, data]
-    //                 })
-    //             }
-    //             if (change.type === 'modified') {
-    //                 console.log('Modified record: ', data);
-    //                 setList(prevState => prevState.map(item => {
-    //                     if (data.id == item.id) {
-    //                         return data
-    //                     } else {
-    //                         return item
-    //                     }
-    //                 }))
-    //             }
-    //             if (change.type === 'removed') {
-    //                 console.log('Removed record: ', data);
-    //                 setList(prevState => prevState.filter(item => {
-    //                     let b = data.id != item.id;
-    //                     console.log('Removed record filter: ', b, item, data);
-    //                     return b
-    //                 }))
-    //             }
-    //         })
-    //     })
-    //     return () => {
-    //         observer()
-    //     };
-    // }, []);
 
+    export function states (useState, useEffect) {
 
-    list.map((item) => {
+    const [list, setList] = useState([]);
+
+    useEffect(() => {
+        const observer = db.collection('emails').onSnapshot(querySnapshot => {
+            querySnapshot.docChanges().forEach(change => {
+                let data = {...change.doc.data(), 'id': change.doc.id};
+                if (change.type === 'added') {
+                    console.log('New record: ', data);
+                    setList(prevState => {
+                        return [...prevState, data]
+                    })
+                }
+                if (change.type === 'modified') {
+                    console.log('Modified record: ', data);
+                    setList(prevState => prevState.map(item => {
+                        if (data.id == item.id) {
+                            return data
+                        } else {
+                            return item
+                        }
+                    }))
+                }
+                if (change.type === 'removed') {
+                    console.log('Removed record: ', data);
+                    setList(prevState => prevState.filter(item => {
+                        let b = data.id != item.id;
+                        console.log('Removed record filter: ', b, item, data);
+                        return b
+                    }))
+                }
+            })
+        })
+        return () => {
+            observer()
+        };
+    }, []);
+}
+
+  export const card  = list.map((item) => {
         return (
             <Grid item md={4}>
                 <Card className={classes.card}>

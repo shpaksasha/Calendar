@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9028339c-f202-4d94-9d6d-0e078b1b0785" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/LogOn/justcard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LogOn/justcard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/LogOn/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LogOn/log.js" afterDir="false" />
     </list>
@@ -109,7 +107,8 @@
       <workItem from="1601369924143" duration="12743000" />
       <workItem from="1601647127279" duration="14699000" />
       <workItem from="1601666402170" duration="2606000" />
-      <workItem from="1601751463692" duration="2414000" />
+      <workItem from="1601751463692" duration="2865000" />
+      <workItem from="1601809219358" duration="3878000" />
     </task>
     <servers />
   </component>
@@ -120,10 +119,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="945" y="392" width="748" height="695" key="#Inspections" timestamp="1596570231349">
+    <state x="945" y="392" width="748" height="695" key="#Inspections" timestamp="1601812546974">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
-    <state x="945" y="392" width="748" height="695" key="#Inspections/88.41.2472.1399@88.41.2472.1399" timestamp="1596570231349" />
+    <state x="945" y="392" width="748" height="695" key="#Inspections/88.41.2472.1399@88.41.2472.1399" timestamp="1601812546974" />
     <state x="778" y="334" width="1099" height="885" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599409656079">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>

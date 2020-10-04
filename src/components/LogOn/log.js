@@ -3,6 +3,8 @@ import {Button, Form} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
 import {db} from '../../firebase/firebaseConfig';
 import {Card, CardContent, Grid, Typography} from '@material-ui/core';
+import {card, states} from './justcard';
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -67,7 +69,7 @@ const LogOn = () => {
 
     const classes = useStyles();
     const [authorization, setAuth] = useState({})
-    const [list, setList] = useState([])
+    // const [list, setList] = useState([])
 
 
     const updateInput = e => {
@@ -99,59 +101,61 @@ const LogOn = () => {
             })
     }
 
-    useEffect(() => {
-        const observer = db.collection('emails').onSnapshot(querySnapshot => {
-            querySnapshot.docChanges().forEach(change => {
-                let data = {...change.doc.data(), 'id': change.doc.id};
-                if (change.type === 'added') {
-                    console.log('New record: ', data);
-                    setList(prevState => {
-                        return [...prevState, data]
-                    })
-                }
-                if (change.type === 'modified') {
-                    console.log('Modified record: ', data);
-                    setList(prevState => prevState.map(item => {
-                        if (data.id == item.id) {
-                            return data
-                        } else {
-                            return item
-                        }
-                    }))
-                }
-                if (change.type === 'removed') {
-                    console.log('Removed record: ', data);
-                    setList(prevState => prevState.filter(item => {
-                        let b = data.id != item.id;
-                        console.log('Removed record filter: ', b, item, data);
-                        return b
-                    }))
-                }
-            })
-        })
-        return () => {
-            observer()
-        };
-    }, []);
+states.useState();
+    states.useEffect();
+    // useEffect(() => {
+    //     const observer = db.collection('emails').onSnapshot(querySnapshot => {
+    //         querySnapshot.docChanges().forEach(change => {
+    //             let data = {...change.doc.data(), 'id': change.doc.id};
+    //             if (change.type === 'added') {
+    //                 console.log('New record: ', data);
+    //                 setList(prevState => {
+    //                     return [...prevState, data]
+    //                 })
+    //             }
+    //             if (change.type === 'modified') {
+    //                 console.log('Modified record: ', data);
+    //                 setList(prevState => prevState.map(item => {
+    //                     if (data.id == item.id) {
+    //                         return data
+    //                     } else {
+    //                         return item
+    //                     }
+    //                 }))
+    //             }
+    //             if (change.type === 'removed') {
+    //                 console.log('Removed record: ', data);
+    //                 setList(prevState => prevState.filter(item => {
+    //                     let b = data.id != item.id;
+    //                     console.log('Removed record filter: ', b, item, data);
+    //                     return b
+    //                 }))
+    //             }
+    //         })
+    //     })
+    //     return () => {
+    //         observer()
+    //     };
+    // }, []);
 
 
-    const card = list.map((item) => {
-            return (
-                    <Grid item md={4}>
-                        <Card className={classes.card}>
-                            <CardContent>
-                                <Typography className={classes.title} gutterBottom>
-                                    Basic Information
-                                </Typography>
-                                <Typography variant="caption" component="div">
-                                    <div key={item.id}><p>{item.name}</p><p>{item.email}</p><p>{item.message}</p></div>
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-            )
-        }
-    )
+    // const card = list.map((item) => {
+    //         return (
+    //                 <Grid item md={4}>
+    //                     <Card className={classes.card}>
+    //                         <CardContent>
+    //                             <Typography className={classes.title} gutterBottom>
+    //                                 Basic Information
+    //                             </Typography>
+    //                             <Typography variant="caption" component="div">
+    //                                 <div key={item.id}><p>{item.name}</p><p>{item.email}</p><p>{item.message}</p></div>
+    //                             </Typography>
+    //                         </CardContent>
+    //                     </Card>
+    //                 </Grid>
+    //         )
+    //     }
+    // )
     return (
         <div className={classes.root}>
             <Grid container direction='row' md={12} justify='center' alignItems='center'>
@@ -181,7 +185,7 @@ const LogOn = () => {
                 </Grid>
 
                 <Grid container direction='row' md={12}>
-                {card}
+                    {card}
                 </Grid>
             </Grid>
         </div>
