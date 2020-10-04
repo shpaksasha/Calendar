@@ -20,7 +20,6 @@ const useStyles = makeStyles(theme =>({
 }));
 
 
-
 export default function Content () {
     const classes = useStyles();
 
@@ -62,7 +61,7 @@ export default function Content () {
     }, []);
 
 
-  const card  = list.map((item) => {
+    list.map((item) => {
         return (
             <Grid item md={4}>
                 <Card className={classes.card}>
@@ -78,5 +77,4 @@ export default function Content () {
             </Grid>
         )
     })
-
 };

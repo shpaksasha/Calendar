@@ -3,9 +3,10 @@ import {Button, Form} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
 import {db} from '../../firebase/firebaseConfig';
 import {Card, CardContent, Grid, Typography} from '@material-ui/core';
-import {Content} from './justcard';
+import loadable from '@loadable/component'
 
 
+const Content = loadable(() => import('./justcard'))
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,

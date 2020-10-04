@@ -44,7 +44,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../shiftshedule" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -108,7 +108,8 @@
       <workItem from="1601647127279" duration="14699000" />
       <workItem from="1601666402170" duration="2606000" />
       <workItem from="1601751463692" duration="2865000" />
-      <workItem from="1601809219358" duration="3878000" />
+      <workItem from="1601809219358" duration="8767000" />
+      <workItem from="1601839628193" duration="2862000" />
     </task>
     <servers />
   </component>
@@ -123,34 +124,34 @@
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
     <state x="945" y="392" width="748" height="695" key="#Inspections/88.41.2472.1399@88.41.2472.1399" timestamp="1601812546974" />
-    <state x="778" y="334" width="1099" height="885" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599409656079">
+    <state x="778" y="334" width="1099" height="921" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601841736709">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
-    <state x="778" y="334" width="1099" height="885" key="#com.intellij.execution.impl.EditConfigurationsDialog/88.41.2472.1399@88.41.2472.1399" timestamp="1599409656079" />
+    <state x="778" y="334" width="1099" height="921" key="#com.intellij.execution.impl.EditConfigurationsDialog/88.41.2472.1399@88.41.2472.1399" timestamp="1601841736709" />
     <state x="926" y="370" width="786" height="738" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598692862294">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
     <state x="926" y="370" width="786" height="738" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/88.41.2472.1399@88.41.2472.1399" timestamp="1598692862294" />
-    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl" timestamp="1601395109625">
+    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl" timestamp="1601840011152">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
-    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl/88.41.2472.1399@88.41.2472.1399" timestamp="1601395109625" />
-    <state width="2431" height="449" key="GridCell.Tab.0.bottom" timestamp="1599410155899">
+    <state x="1001" y="383" width="636" height="712" key="FileChooserDialogImpl/88.41.2472.1399@88.41.2472.1399" timestamp="1601840011152" />
+    <state width="2431" height="363" key="GridCell.Tab.0.bottom" timestamp="1601841630305">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
-    <state width="2431" height="449" key="GridCell.Tab.0.bottom/88.41.2472.1399@88.41.2472.1399" timestamp="1599410155899" />
-    <state width="2431" height="449" key="GridCell.Tab.0.center" timestamp="1599410155898">
+    <state width="2431" height="363" key="GridCell.Tab.0.bottom/88.41.2472.1399@88.41.2472.1399" timestamp="1601841630305" />
+    <state width="2431" height="363" key="GridCell.Tab.0.center" timestamp="1601841630305">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
-    <state width="2431" height="449" key="GridCell.Tab.0.center/88.41.2472.1399@88.41.2472.1399" timestamp="1599410155898" />
-    <state width="2431" height="449" key="GridCell.Tab.0.left" timestamp="1599410155898">
+    <state width="2431" height="363" key="GridCell.Tab.0.center/88.41.2472.1399@88.41.2472.1399" timestamp="1601841630305" />
+    <state width="2431" height="363" key="GridCell.Tab.0.left" timestamp="1601841630304">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
-    <state width="2431" height="449" key="GridCell.Tab.0.left/88.41.2472.1399@88.41.2472.1399" timestamp="1599410155898" />
-    <state width="2431" height="449" key="GridCell.Tab.0.right" timestamp="1599410155898">
+    <state width="2431" height="363" key="GridCell.Tab.0.left/88.41.2472.1399@88.41.2472.1399" timestamp="1601841630304" />
+    <state width="2431" height="363" key="GridCell.Tab.0.right" timestamp="1601841630305">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
-    <state width="2431" height="449" key="GridCell.Tab.0.right/88.41.2472.1399@88.41.2472.1399" timestamp="1599410155898" />
+    <state width="2431" height="363" key="GridCell.Tab.0.right/88.41.2472.1399@88.41.2472.1399" timestamp="1601841630305" />
     <state width="2431" height="449" key="GridCell.Tab.1.bottom" timestamp="1599410155899">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
@@ -199,6 +200,10 @@
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
     <state width="2431" height="449" key="GridCell.Tab.3.right/88.41.2472.1399@88.41.2472.1399" timestamp="1599410155900" />
+    <state x="722" y="351" width="1200" height="778" key="Vcs.Push.Dialog.v2" timestamp="1601841403958">
+      <screen x="88" y="41" width="2472" height="1399" />
+    </state>
+    <state x="722" y="351" width="1200" height="778" key="Vcs.Push.Dialog.v2/88.41.2472.1399@88.41.2472.1399" timestamp="1601841403958" />
     <state x="819" y="338" key="run.anything.popup" timestamp="1596976739719">
       <screen x="88" y="41" width="2472" height="1399" />
     </state>
