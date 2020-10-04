@@ -3,7 +3,7 @@ import {Button, Form} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
 import {db} from '../../firebase/firebaseConfig';
 import {Card, CardContent, Grid, Typography} from '@material-ui/core';
-import {card, states} from './justcard';
+import {Content} from './justcard';
 
 
 const useStyles = makeStyles(theme => ({
@@ -101,8 +101,6 @@ const LogOn = () => {
             })
     }
 
-states.useState();
-    states.useEffect();
     // useEffect(() => {
     //     const observer = db.collection('emails').onSnapshot(querySnapshot => {
     //         querySnapshot.docChanges().forEach(change => {
@@ -185,7 +183,7 @@ states.useState();
                 </Grid>
 
                 <Grid container direction='row' md={12}>
-                    {card}
+                    <Content/>
                 </Grid>
             </Grid>
         </div>

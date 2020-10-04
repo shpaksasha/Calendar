@@ -21,10 +21,8 @@ const useStyles = makeStyles(theme =>({
 
 
 
-const Content = () => {
+export default function Content () {
     const classes = useStyles();
-
-    export function states (useState, useEffect) {
 
     const [list, setList] = useState([]);
 
@@ -62,9 +60,9 @@ const Content = () => {
             observer()
         };
     }, []);
-}
 
-  export const card  = list.map((item) => {
+
+  const card  = list.map((item) => {
         return (
             <Grid item md={4}>
                 <Card className={classes.card}>
@@ -82,6 +80,3 @@ const Content = () => {
     })
 
 };
-
-
-export default Content;
