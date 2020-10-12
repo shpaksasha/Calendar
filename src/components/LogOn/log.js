@@ -2,11 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
 import {db} from '../../firebase/firebaseConfig';
-import {Card, CardContent, Grid, Typography} from '@material-ui/core';
-import loadable from '@loadable/component'
+import {Card, Grid, CardContent, Typography} from '@material-ui/core';
 
 
-const Content = loadable(() => import('./justcard'))
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
@@ -41,14 +39,6 @@ const useStyles = makeStyles(theme => ({
         left: '50%',
         transform: 'translate(-50%, 0)'
     },
-    loading: {
-        display: 'flex',
-        position: 'relative',
-        margin: '0 auto',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: '350px',
-    },
     card: {
         margin: '30px 10px',
         width: '350px',
@@ -61,16 +51,14 @@ const useStyles = makeStyles(theme => ({
     title: {
         fontSize: '1.4em',
         color: '#6d4c41'
-    },
-
+    }
 }));
 
 const LogOn = () => {
 
-
     const classes = useStyles();
     const [authorization, setAuth] = useState({})
-    // const [list, setList] = useState([])
+    const [list, setList] = useState([])
 
 
     const updateInput = e => {
@@ -102,59 +90,58 @@ const LogOn = () => {
             })
     }
 
-    // useEffect(() => {
-    //     const observer = db.collection('emails').onSnapshot(querySnapshot => {
-    //         querySnapshot.docChanges().forEach(change => {
-    //             let data = {...change.doc.data(), 'id': change.doc.id};
-    //             if (change.type === 'added') {
-    //                 console.log('New record: ', data);
-    //                 setList(prevState => {
-    //                     return [...prevState, data]
-    //                 })
-    //             }
-    //             if (change.type === 'modified') {
-    //                 console.log('Modified record: ', data);
-    //                 setList(prevState => prevState.map(item => {
-    //                     if (data.id == item.id) {
-    //                         return data
-    //                     } else {
-    //                         return item
-    //                     }
-    //                 }))
-    //             }
-    //             if (change.type === 'removed') {
-    //                 console.log('Removed record: ', data);
-    //                 setList(prevState => prevState.filter(item => {
-    //                     let b = data.id != item.id;
-    //                     console.log('Removed record filter: ', b, item, data);
-    //                     return b
-    //                 }))
-    //             }
-    //         })
-    //     })
-    //     return () => {
-    //         observer()
-    //     };
-    // }, []);
+    useEffect(() => {
+        const observer = db.collection('emails').onSnapshot(querySnapshot => {
+            querySnapshot.docChanges().forEach(change => {
+                let data = {...change.doc.data(), 'id': change.doc.id};
+                if (change.type === 'added') {
+                    console.log('New record: ', data);
+                    setList(prevState => {
+                        return [...prevState, data]
+                    })
+                }
+                if (change.type === 'modified') {
+                    console.log('Modified record: ', data);
+                    setList(prevState => prevState.map(item => {
+                        if (data.id == item.id) {
+                            return data
+                        } else {
+                            return item
+                        }
+                    }))
+                }
+                if (change.type === 'removed') {
+                    console.log('Removed record: ', data);
+                    setList(prevState => prevState.filter(item => {
+                        let b = data.id != item.id;
+                        console.log('Removed record filter: ', b, item, data);
+                        return b
+                    }))
+                }
+            })
+        })
+        return () => {
+            observer()
+        };
+    }, []);
 
-
-    // const card = list.map((item) => {
-    //         return (
-    //                 <Grid item md={4}>
-    //                     <Card className={classes.card}>
-    //                         <CardContent>
-    //                             <Typography className={classes.title} gutterBottom>
-    //                                 Basic Information
-    //                             </Typography>
-    //                             <Typography variant="caption" component="div">
-    //                                 <div key={item.id}><p>{item.name}</p><p>{item.email}</p><p>{item.message}</p></div>
-    //                             </Typography>
-    //                         </CardContent>
-    //                     </Card>
-    //                 </Grid>
-    //         )
-    //     }
-    // )
+    const card = list.map((item) => {
+            return (
+                    <Grid item md={4}>
+                        <Card className={classes.card}>
+                            <CardContent>
+                                <Typography className={classes.title} gutterBottom>
+                                    Basic Information
+                                </Typography>
+                                <Typography variant="caption" component="div">
+                                    <div key={item.id}><p>{item.name}</p><p>{item.email}</p><p>{item.message}</p></div>
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+            )
+        }
+    )
     return (
         <div className={classes.root}>
             <Grid container direction='row' md={12} justify='center' alignItems='center'>
@@ -182,9 +169,8 @@ const LogOn = () => {
                 </Button>
             </Form>
                 </Grid>
-
                 <Grid container direction='row' md={12}>
-                    <Content/>
+                    {card}
                 </Grid>
             </Grid>
         </div>
