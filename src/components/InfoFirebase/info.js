@@ -2,6 +2,7 @@ import React from 'react';
 // import {db} from "../../firebase/firebaseConfig";
 import {makeStyles} from '@material-ui/core/styles';
 import {Card, CardContent, Typography, CardActions, Button} from '@material-ui/core';
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const useStyles = makeStyles({
     root: {
@@ -44,7 +45,13 @@ const SimpleCard = () => {
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Learn More</Button>
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    startIcon={<DeleteIcon/>}
+                >
+                    Delete
+                </Button>
             </CardActions>
         </Card>
     );

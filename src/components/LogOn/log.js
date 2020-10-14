@@ -2,7 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
 import {db} from '../../firebase/firebaseConfig';
-import {Card, Grid, CardContent, Typography} from '@material-ui/core';
+import {Card, Grid, CardContent, Typography, CardActions} from '@material-ui/core';
+import {Buttons} from '@material-ui/core'
+import DeleteIcon from '@material-ui/icons/Delete';
 
 
 const useStyles = makeStyles(theme => ({
@@ -45,12 +47,19 @@ const useStyles = makeStyles(theme => ({
         height: '190px',
         position: 'relative',
         borderRadius: '5px',
-        background: '#9fa8da'
+        background: '#9fa8da',
+        padding: '5px'
 
     },
     title: {
         fontSize: '1.4em',
         color: '#6d4c41'
+    },
+    delete: {
+        position: 'absolute',
+        left: '50%',
+        bottom:'20px',
+        transform:'translate(100%, 0)'
     }
 }));
 
@@ -110,14 +119,15 @@ const LogOn = () => {
                         }
                     }))
                 }
-                if (change.type === 'removed') {
-                    console.log('Removed record: ', data);
+                const elemDel = () =>{
+                if (change.type === 'removed'){
+                    // console.log('Removed record: ', data);
                     setList(prevState => prevState.filter(item => {
                         let b = data.id != item.id;
-                        console.log('Removed record filter: ', b, item, data);
+                        // console.log('Removed record filter: ', b, item, data);
                         return b
                     }))
-                }
+                }}
             })
         })
         return () => {
@@ -136,6 +146,7 @@ const LogOn = () => {
                                 <Typography variant="caption" component="div">
                                     <div key={item.id}><p>{item.name}</p><p>{item.email}</p><p>{item.message}</p></div>
                                 </Typography>
+                                <Button variant='danger' className={classes.delete} onChange>Delete</Button>
                             </CardContent>
                         </Card>
                     </Grid>
