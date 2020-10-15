@@ -40,7 +40,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../faq-test" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -109,6 +109,7 @@
       <workItem from="1602146794917" duration="1961000" />
       <workItem from="1602157568209" duration="666000" />
       <workItem from="1602514971254" duration="11739000" />
+      <workItem from="1602686550758" duration="13129000" />
     </task>
     <servers />
   </component>

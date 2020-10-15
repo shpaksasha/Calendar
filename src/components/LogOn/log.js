@@ -121,19 +121,31 @@ const LogOn = () => {
                 }
                 const elemDel = () =>{
                 if (change.type === 'removed'){
-                    // console.log('Removed record: ', data);
+                    console.log('Removed record: ', data);
                     setList(prevState => prevState.filter(item => {
                         let b = data.id != item.id;
-                        // console.log('Removed record filter: ', b, item, data);
+                        console.log('Removed record filter: ', b, item, data);
                         return b
                     }))
                 }}
+                // exports.deleteUser = functions.firestore
+                //     .document('emails/{id}')
+                //     .onDelete((change.type ==='removed ') => {
+                //     setList(prevState => prevState.filter(item => {
+                //         let b = data.id != item.id;
+                //         return b
+                //     });
+
+
+                // const res = await db.collection('emails').doc('DC').delete();
             })
         })
         return () => {
             observer()
         };
     }, []);
+
+
 
     const card = list.map((item) => {
             return (
@@ -146,7 +158,7 @@ const LogOn = () => {
                                 <Typography variant="caption" component="div">
                                     <div key={item.id}><p>{item.name}</p><p>{item.email}</p><p>{item.message}</p></div>
                                 </Typography>
-                                <Button variant='danger' className={classes.delete} onChange>Delete</Button>
+                                <Button variant='danger' className={classes.delete}>Delete</Button>
                             </CardContent>
                         </Card>
                     </Grid>
