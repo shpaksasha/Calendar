@@ -98,18 +98,22 @@ const LogOn = () => {
                 console.log(error)
             })
     }
-const delCard =() => {
-    db.collection("emails").doc('id').delete().then(function () {
-        // db.collection('emails').remove({
-        //     name: authorization.name,
-        //     email: authorization.email,
-        //     message: authorization.message,
-        //     time: new Date(),
-        // })
+
+   const del = db.collection("cities").doc("DC").delete().then(function() {
+        console.log("Document successfully deleted!");
     }).catch(function (error) {
         console.error("Error removing document: ", error);
     });
-}
+
+
+    // this.db.collection('emails')
+    //     .get()
+    //     .subscribe((snapshot) =>{
+    //         snapshot.forEach(doc => {
+    //             this.db.collection('emails').doc(doc.id).delete()
+    //         });
+    //     })
+
 
     useEffect(() => {
         const observer = db.collection('emails').onSnapshot(querySnapshot => {
@@ -210,7 +214,7 @@ const delCard =() => {
                                 <Typography variant="caption" component="div">
                                     <div key={item.id}><p>{item.name}</p><p>{item.email}</p><p>{item.message}</p></div>
                                 </Typography>
-                                <Button variant='danger' className={classes.delete} onChange={delCard}>Delete</Button>
+                                <Button variant='danger' className={classes.delete} onChange={del}>Delete</Button>
                             </CardContent>
                         </Card>
                     </Grid>
