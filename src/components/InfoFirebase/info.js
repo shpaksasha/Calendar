@@ -1,5 +1,4 @@
 import React from 'react';
-// import {db} from "../../firebase/firebaseConfig";
 import {makeStyles} from '@material-ui/core/styles';
 import {Card, CardContent, Typography, CardActions, Button} from '@material-ui/core';
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -58,15 +57,3 @@ const SimpleCard = () => {
 }
 
 export default SimpleCard;
-
-// const pullEmail = () => {
-//     let baseRef = db.collection('emails');
-//     let allBase = baseRef.get()
-//         .then(snapshot => {
-//             snapshot.map((item) => {
-//                 console.log(`${item.name} ${item.email} ${item.message}`);
-//             })
-//         })
-// }
-//
-// export default pullEmail;

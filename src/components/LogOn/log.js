@@ -2,9 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
 import {db} from '../../firebase/firebaseConfig';
-import {Card, Grid, CardContent, Typography, CardActions} from '@material-ui/core';
-import {Buttons} from '@material-ui/core'
-import DeleteIcon from '@material-ui/icons/Delete';
+import {Card, Grid, CardContent, Typography} from '@material-ui/core';
 
 
 const useStyles = makeStyles(theme => ({
@@ -68,6 +66,7 @@ const LogOn = () => {
     const classes = useStyles();
     const [authorization, setAuth] = useState({})
     const [list, setList] = useState([])
+    const [carded, setCard] = useState([])
 
 
     const updateInput = e => {
@@ -98,12 +97,27 @@ const LogOn = () => {
                 console.log(error)
             })
     }
-
-   const del = db.collection("cities").doc("DC").delete().then(function() {
-        console.log("Document successfully deleted!");
-    }).catch(function (error) {
-        console.error("Error removing document: ", error);
+useEffect(() => {
+    const delCard = db.collection("emails").delete().then(querySnapshot => {
+        querySnapshot.docChanges().forEach(item =>{
+            let del = {...item.doc.data(), 'id': item.doc.id};
+            if (item.doc.id === 'removed'){
+                setCard(prevState => prevState.filter(entry => {
+                    let a = del.id != entry.id;
+                    return a
+                }))
+            }
+        })
+//
+//     }).catch(error => {
+//         console.error("Error removing document: ", error);
     });
+//
+    return () => {
+        delCard();
+    }
+},[])
+
 
 
     // this.db.collection('emails')
@@ -143,65 +157,12 @@ const LogOn = () => {
                             return b
                         }))
                 }
-
-
-                // const delDocument = () =>{
-                //     if (data.id != item.id){
-                //         console.log('Removed record: ', data);
-                //         setList(prevState => prevState.filter(item => {
-                //             let b = data.id != item.id;
-                //             console.log('Removed record filter: ', b, item, data);
-                //             return b
-                //         }))
-                //     }
-                // }
-
-
-                // let del = db.collection("emails").delete().then(function() {
-                //     if (data.id != item.id) {
-                //         console.log('Removed record: ', data);
-                //         setList(prevState => prevState.filter(item => {
-                //             let b = data.id != item.id;
-                //             console.log('Removed record filter: ', b, item, data);
-                //             return b
-                //         }))
-                //     }
-                //     console.log("Document successfully deleted!");
-                // }).catch(function(error) {
-                //     console.error("Error removing document: ", error);
-                // });
-
-              // db.collection('emails').doc('id').delete();
             })
         })
         return () => {
             observer()
         };
     }, []);
-
-    // let  del = db.collection("emails").doc("id").delete().then(function() {
-    //         console.log('Removed record: ', data);
-    //         setList(prevState => prevState.filter(item => {
-    //             let b = data.id != item.id;
-    //             console.log('Removed record filter: ', b, item, data);
-    //             return b
-    //         }))
-    //
-    //     console.log("Document successfully deleted!");
-    // }).catch(function(error) {
-    //     console.error("Error removing document: ", error);
-    // });
-
-    // const delDocument = () =>{
-    //         if (data.id != item.id){
-    //         // console.log('Removed record: ', data);
-    //         setList(prevState => prevState.filter(item => {
-    //             let b = data.id != item.id;
-    //             // console.log('Removed record filter: ', b, item, data);
-    //             return b
-    //         }))
-    //     }
-    // }
 
     const card = list.map((item) => {
             return (
@@ -214,7 +175,7 @@ const LogOn = () => {
                                 <Typography variant="caption" component="div">
                                     <div key={item.id}><p>{item.name}</p><p>{item.email}</p><p>{item.message}</p></div>
                                 </Typography>
-                                <Button variant='danger' className={classes.delete} onChange={del}>Delete</Button>
+                                <Button variant='danger' className={classes.delete} onChange>Delete</Button>
                             </CardContent>
                         </Card>
                     </Grid>
