@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9028339c-f202-4d94-9d6d-0e078b1b0785" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/InfoFirebase/info.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/InfoFirebase/info.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/LogOn/log.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/LogOn/log.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +117,8 @@
       <workItem from="1602925932104" duration="10484000" />
       <workItem from="1602940175227" duration="5000" />
       <workItem from="1602956903739" duration="3554000" />
-      <workItem from="1603034366122" duration="9640000" />
+      <workItem from="1603034366122" duration="10491000" />
+      <workItem from="1603220712733" duration="3136000" />
     </task>
     <servers />
   </component>

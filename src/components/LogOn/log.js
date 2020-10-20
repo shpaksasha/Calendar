@@ -97,37 +97,26 @@ const LogOn = () => {
                 console.log(error)
             })
     }
-useEffect(() => {
-    const delCard = db.collection("emails").delete().then(querySnapshot => {
-        querySnapshot.docChanges().forEach(item =>{
-            let del = {...item.doc.data(), 'id': item.doc.id};
-            if (item.doc.id === 'removed'){
-                setCard(prevState => prevState.filter(entry => {
-                    let a = del.id != entry.id;
-                    return a
-                }))
-            }
-        })
-//
+// useEffect(() => {
+//     const delCard = db.collection("emails").delete().then(querySnapshot => {
+//         querySnapshot.docChanges().forEach(item =>{
+//             let del = {...item.doc.data(), 'id': item.doc.id};
+//             if (item.id === 'removed'){
+//                 let s = del.data = '';
+//                 return s
+                // setCard(prevState => prevState.filter(entry => {
+                //     let a = del.id != entry.id;
+                //     return a
+                // }))
+        //     }
+        // })
 //     }).catch(error => {
 //         console.error("Error removing document: ", error);
-    });
-//
-    return () => {
-        delCard();
-    }
-},[])
-
-
-
-    // this.db.collection('emails')
-    //     .get()
-    //     .subscribe((snapshot) =>{
-    //         snapshot.forEach(doc => {
-    //             this.db.collection('emails').doc(doc.id).delete()
-    //         });
-    //     })
-
+//     });
+//     return () => {
+//         delCard();
+//     }
+// },[])
 
     useEffect(() => {
         const observer = db.collection('emails').onSnapshot(querySnapshot => {
@@ -163,6 +152,7 @@ useEffect(() => {
             observer()
         };
     }, []);
+
 
     const card = list.map((item) => {
             return (
