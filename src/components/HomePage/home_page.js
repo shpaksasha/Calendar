@@ -22,7 +22,6 @@ const Home = () =>{
     <div className={classes.root}>
         <Slider/>
         <CalendarReact/>
-    <Grid/>
     </div>
     )
 }

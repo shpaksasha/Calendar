@@ -19,13 +19,13 @@ const useStyles = makeStyles(theme => ({
         '&:hover':{
             backgroundColor: '#e3f2fd',
         }
-    }
+    },
 }));
 
 const Header = () =>{
     const classes =useStyles();
     return(
-        <Navbar collapseOnSelect expand='md' bg='light' variant='light'>
+        <Navbar fixed='top' collapseOnSelect expand='md' bg='light' variant='light'>
             <Container>
                 <Navbar.Brand href='/'>
                     <img
