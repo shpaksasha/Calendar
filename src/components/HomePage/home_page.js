@@ -10,8 +10,7 @@ const useStyle =makeStyles(theme =>({
         margin: 0,
         display: 'block',
         alignItems: 'center',
-        justifyContent: 'center'
-        // padding: '3rem 6.25rem 3rem ',
+        justifyContent: 'center',
     }
 }));
 

@@ -11,7 +11,6 @@ const useStyles = makeStyles(theme => ({
         justifyContent:'center',
         alignItems: 'center',
         margin: '50px',
-        // backgroundColor: "#313131",
     },
 
     form:{
