@@ -1,5 +1,5 @@
 import React, {Fragment} from 'react';
-import Header from './components/Header/header';
+import Header from './pages/Header/header';
 import {Route} from 'react-router-dom';
 import Home from './pages/Home/home_page';
 import LogOn from './components/LogOn/log';
