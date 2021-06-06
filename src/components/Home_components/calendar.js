@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const CalendarReact = () => {
+const CalendarHome = () => {
     const classes = useStyles();
 
 
@@ -49,4 +49,4 @@ const CalendarReact = () => {
     );
 }
 
-export default CalendarReact;
+export default CalendarHome;
