@@ -43,10 +43,6 @@ const Content = () => {
 };
 export default Content;
 
-
-examples
-
-
 const prom = new Promise((resolve, reject) => {
     setTimeout(() => {
         console.log('Hi, how are you ?')

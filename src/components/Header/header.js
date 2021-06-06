@@ -1,11 +1,7 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import {Button, Container, Form, FormControl, Nav, Navbar, NavDropdown} from 'react-bootstrap';
-import logo from '../../images/calendar.jpg'
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-import FilterIcon from '@material-ui/icons/Filter';
-import DynamicFeedIcon from '@material-ui/icons/DynamicFeed';
-import ShowChartIcon from '@material-ui/icons/ShowChart';
+import {NavLink} from 'react-router-dom';
+import {Icon, Toolbar, Typography, makeStyles} from '@material-ui/core';
+
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -13,72 +9,111 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         display: 'flex',
         backgroundColor: '#eceff1',
-        padding: '0rem 7.25rem',
+        padding: '0rem 6.25rem',
         justifyContent: 'space-between',
         boxSizing: 'border-box',
         position: 'sticky',
         top: 0,
+        zIndex: 1,
     },
 
-    addIcon: {
-        color: '#4791db',
-        paddingRight: '7px',
+    eye: {
+        display: 'flex',
+        alignItems: 'center',
+        textDecoration: 'none',
     },
 
-    block: {
+    images: {
+        width: '40px',
+        height: '40px',
+    },
+
+    see: {
+        width: '100%',
+        color: '#212121',
+        fontSize: '12px',
+        letterSpacing: '120%',
+        fontFamily: 'Montserrat',
+        paddingLeft: '10px',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '10px',
+            paddingLeft: '8px'
+        },
+    },
+
+    link: {
+        position: 'relative',
+        textDecoration: 'none',
+        color: '#828282',
+        fontSize: '16px',
+        lineHeight: '24px',
+        fontFamily: 'Roboto, sans-serif',
         '&:hover': {
-            backgroundColor: '#e3f2fd',
+            textDecoration: 'none',
+            color: '#424242'
+        },
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '12px',
+            lineHeight: '18px',
+        },
+        [theme.breakpoints.down('xs')]: {
+            justifyContent: 'space-between',
+            fontSize: '25px',
+            lineHeight: '45px',
         }
     },
 
-    header: {
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
+    linkActive: {
+        paddingBottom: '5px',
+        borderBottom: '2px solid #37474f',
+        color: '#37474f',
+        fontSize: '16px',
+        fontFamily: 'Roboto, sans-serif',
+        [theme.breakpoints.down('sm')]: {
+            fontSize: '12px',
+            lineHeight: '18px',
+        },
+        [theme.breakpoints.down('xs')]: {
+            justifyContent: 'space-between',
+            fontSize: '25px',
+            lineHeight: '45px'
+        }
+    },
 }));
 
 const Header = () => {
     const classes = useStyles();
     return (
-        <Navbar className={classes.root} fixed='top' collapseOnSelect expand='md' bg='light' variant='light'>
-            <Container>
-                <Navbar.Brand href='/'>
-                    <img
-                        src={logo}
-                        height='40'
-                        width='40'
-                        alt='brand'
-                        className='d-inline-block align-content-center mr-2'
-                    />
-                    Calendar
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls='responsive-navbar-nav'/>
-                <Navbar.Collapse className={classes.header} id='responsive-navbar-nav'>
-                    <Nav className='m-auto pr-md-auto'>
-                        <Nav.Link href='/' className={classes.block}>Головна</Nav.Link>
-                        <NavDropdown title='Графік' id='basic-nav-dropdown' className={classes.block}>
-                            <NavDropdown.Item href='#'><AddCircleOutlineIcon className={classes.addIcon}/>Створити
-                                графік</NavDropdown.Item>
-                            <NavDropdown.Item href='#'><FilterIcon className={classes.addIcon}/>Порівняти
-                                графіки</NavDropdown.Item>
-                            <NavDropdown.Item href='#'><DynamicFeedIcon className={classes.addIcon}/>Всі
-                                графіки</NavDropdown.Item>
-                            <NavDropdown.Divider/>
-                            <NavDropdown.Item href='#'>
-                                <ShowChartIcon className={classes.addIcon}/>Статистика</NavDropdown.Item>
-                        </NavDropdown>
-                        <Nav.Link href='/content' className={classes.block}>Запросити друзів</Nav.Link>
-                        <Nav.Link href='/info' className={classes.block}>Info</Nav.Link>
-                        <Nav.Link href='/faq' className={classes.block}>Підтримка</Nav.Link>
-                        <Nav.Link href='/log' className={classes.block}>Вхід</Nav.Link>
-                    </Nav>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2"/>
-                        <Button variant="outline-info">Search</Button>
-                    </Form>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+        <Toolbar className={classes.root}>
+            <Typography>
+                <Icon>
+                    <NavLink className={classes.eye} to='/'>
+                        <img className={classes.images} src='/icon/calendar.png' alt='calendar'/>
+                        <span className={classes.see}><b>Google Calendar</b></span>
+                    </NavLink>
+                </Icon>
+            </Typography>
+            <Typography className={classes.title}>
+                <NavLink exact={true} className={classes.link} activeClassName={classes.linkActive} to='/'>
+                    Головна
+                </NavLink>
+            </Typography>
+            <Typography className={classes.title}>
+                <NavLink className={classes.link} activeClassName={classes.linkActive} to='/info'>
+                    Сервіси
+                </NavLink>
+            </Typography>
+            <Typography className={classes.title}>
+                <NavLink className={classes.link} activeClassName={classes.linkActive} to='/faq'>
+                    Допомога
+                </NavLink>
+            </Typography>
+            <Typography className={classes.title}>
+                <NavLink className={classes.link} activeClassName={classes.linkActive} to='/log'>
+                    Вхід
+                </NavLink>
+            </Typography>
+        </Toolbar>
     )
 };
 

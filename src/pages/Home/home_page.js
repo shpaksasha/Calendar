@@ -6,11 +6,13 @@ import {makeStyles} from '@material-ui/core/styles';
 
 const useStyle = makeStyles(theme => ({
     root: {
-        flexGrow: 1,
-        margin: 0,
+        width: '100%',
         display: 'block',
+        flexGrow: 1,
+        padding: '0rem 6.25rem',
         alignItems: 'center',
-        justifyContent: 'center',
+        textAlign: 'center',
+        // backgroundColor: '#ffccbc',
     }
 }));
 

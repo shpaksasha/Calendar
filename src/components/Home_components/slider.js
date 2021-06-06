@@ -7,18 +7,23 @@ import img3 from '../../images/images3.jpeg';
 
 
 const useStyles = makeStyles(theme => ({
+    root: {
+        position:'relative',
+        display: 'block',
+        flexGrow: 1,
+        padding: '0rem 6.25rem',
+        zIndex: 0,
+    },
     carousel: {
         display: 'block',
         width: '100%',
         height: '550px'
     },
-
     caption: {
         color: '#ff6f00',
         fontSize: '2.3em',
         fontFamily: 'Roboto'
     },
-
     description: {
         color: '#ff6f00',
         fontSize: '1.2em',
@@ -30,7 +35,7 @@ const useStyles = makeStyles(theme => ({
 const Slider = () => {
     const classes = useStyles();
     return (
-        <Container>
+        <Container className={classes.root}>
             <Row>
                 <Col md='12'>
                     <Carousel position='fixed' controls={false} fade={true} interval={4000}>
