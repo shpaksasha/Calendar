@@ -20,9 +20,10 @@ const useStyles = makeStyles(theme => ({
         height: '550px'
     },
     caption: {
-        color: '#ff6f00',
+        color: '#ff3d00',
         fontSize: '2.3em',
-        fontFamily: 'Roboto'
+        fontFamily: 'Roboto',
+        marginBottom: '290px'
     },
     description: {
         color: '#ff6f00',
@@ -38,7 +39,7 @@ const Slider = () => {
         <Container className={classes.root}>
             <Row>
                 <Col md='12'>
-                    <Carousel position='fixed' controls={false} fade={true} interval={4000}>
+                    <Carousel position='fixed' controls={false} fade={true} interval={5000}>
                         <Carousel.Item>
                             <img className={classes.carousel} src={img1} alt='calendar'/>
                             <Carousel.Caption>

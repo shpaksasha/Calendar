@@ -66,8 +66,6 @@ const LogOn = () => {
     const classes = useStyles();
     const [authorization, setAuth] = useState({})
     const [list, setList] = useState([])
-    // const [carded, setCard] = useState([])
-
 
     const updateInput = e => {
         setAuth({

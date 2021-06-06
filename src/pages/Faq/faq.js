@@ -49,7 +49,7 @@ const Faq = () => {
         <div className={classes.root}>
             <Accordion disableSpacing={true}>
                 <AccordionSummary
-                    expandIcon={<ExpandMoreIcon style={{'color': '#ffffff'}}/>}
+                    expandIcon={<ExpandMoreIcon style={{'color': '#ffffff', 'backgroundColor': '#9e9e9e'}}/>}
                     id="panel1a-header"
                     className={classes.summary}
                 >
