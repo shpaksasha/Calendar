@@ -99,7 +99,7 @@ const Header = () => {
                 </NavLink>
             </Typography>
             <Typography className={classes.title}>
-                <NavLink className={classes.link} activeClassName={classes.linkActive} to='/info'>
+                <NavLink className={classes.link} activeClassName={classes.linkActive} to='/card'>
                     Сервіси
                 </NavLink>
             </Typography>

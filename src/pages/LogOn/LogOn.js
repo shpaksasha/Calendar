@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
-import {db} from '../../pages/Firebase/firebaseConfig';
+import {db} from '../../firebaseConfig';
 import {Card, Grid, CardContent, Typography} from '@material-ui/core';
 
 
