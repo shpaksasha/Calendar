@@ -4,7 +4,6 @@ import {makeStyles} from '@material-ui/core/styles';
 import {db} from '../../firebaseConfig';
 import {Card, Grid, CardContent, Typography} from '@material-ui/core';
 
-
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
@@ -62,8 +61,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const LogOn = () => {
-
     const classes = useStyles();
+
     const [authorization, setAuth] = useState({})
     const [list, setList] = useState([])
 
@@ -72,8 +71,8 @@ const LogOn = () => {
             ...authorization,
             [e.target.name]: e.target.value,
         })
-        console.log(authorization)
-        console.log(e.target.name)
+        // console.log(authorization)
+        // console.log(e.target.name)
     }
     const handleSubmit = event => {
         event.preventDefault()
@@ -155,7 +154,7 @@ const LogOn = () => {
             <Grid container direction='row' md={12} justify='center' alignItems='center'>
                 <Grid item md={12}>
             <Form className={classes.form} onSubmit={handleSubmit}>
-                <Form.Label className={classes.contact}>Contact Form</Form.Label>
+                <Form.Label className={classes.contact}>Contact Form !</Form.Label>
                 <Form.Group controlId='formName' className={classes.control}>
                     <Form.Control style={{fontFamily: 'Roboto'}} type='text' name='name' value={authorization.name}
                                   onChange={updateInput} placeholder='Name'/>

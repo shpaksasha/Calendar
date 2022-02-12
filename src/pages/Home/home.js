@@ -1,6 +1,6 @@
 import React from 'react';
-import Slider from '../../components/Hocomponents/slider';
-import CalendarHome from '../../components/Hocomponents/calendar';
+import Slider from '../../components/Calendar/slider';
+import CalendarHome from '../../components/Calendar/calendar';
 import {makeStyles} from '@material-ui/core/styles';
 
 
@@ -15,7 +15,7 @@ const useStyle = makeStyles(theme => ({
     }
 }));
 
-export default function Home () {
+const Home = () => {
     const classes = useStyle();
 
     return (
@@ -25,3 +25,5 @@ export default function Home () {
         </div>
     )
 };
+
+export default Home;

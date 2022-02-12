@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import Header from './pages/Header/header';
 import {Route} from 'react-router-dom';
-import Home from './pages/Home/home_page';
+import Home from './pages/Home/home';
 import LogOn from './pages/LogOn/LogOn';
 import Faq from './pages/Faq/Faq';
 import SimpleCard from './pages/Card/infoCard';
