@@ -84,7 +84,7 @@ const LogOn = () => {
         })
     }
     const sendEmail = () => {
-        db.collection('emails').add({
+        db.collection('calendar').add({
             name: authorization.name,
             email: authorization.email,
             message: authorization.message,
@@ -96,7 +96,7 @@ const LogOn = () => {
     }
 
     useEffect(() => {
-        const observer = db.collection('emails').onSnapshot(querySnapshot => {
+        const observer = db.collection('calendar').onSnapshot(querySnapshot => {
             querySnapshot.docChanges().forEach(change => {
                 let data = {...change.doc.data(), 'id': change.doc.id};
                 if (change.type === 'added') {
