@@ -1,6 +1,6 @@
 import React from 'react';
-import Slider from '../../components/Calendar/slider';
-import CalendarHome from '../../components/Calendar/calendar';
+import Slider from '../../components/HomeCalendar/slider';
+import CalendarHome from '../../components/HomeCalendar/calendar';
 import {makeStyles} from '@material-ui/core/styles';
 
 

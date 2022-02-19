@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
         width: '100%',
         display: 'flex',
-        backgroundColor: '#eceff1',
+        backgroundColor: '#288fa1',
         padding: '0rem 6.25rem',
         justifyContent: 'space-between',
         boxSizing: 'border-box',
@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     link: {
         position: 'relative',
         textDecoration: 'none',
-        color: '#828282',
+        color: '#332222',
         fontSize: '16px',
         lineHeight: '24px',
         fontFamily: 'Roboto, sans-serif',
