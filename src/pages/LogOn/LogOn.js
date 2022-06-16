@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import {makeStyles} from '@material-ui/core/styles';
-import {db} from '../../firebaseConfig';
+import {db} from '../../firebaseApp';
 import {Card, Grid, CardContent, Typography} from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
@@ -59,6 +59,7 @@ const useStyles = makeStyles(theme => ({
         transform:'translate(100%, 0)'
     }
 }));
+
 
 const LogOn = () => {
     const classes = useStyles();
